@@ -1,12 +1,23 @@
 import React from "react";
+import All from './Containers/All';
+import Search from './Components/Search'
+import { Switch, Route } from 'react-router'
+import Githubapi from "./Components/Githubapi";
+
 class App extends React.Component {
   state = {};
   render() {
     return (
-      <>
-        <h1>Mugisha's React App</h1>
-        <h2>Happy Coding</h2>
-      </>
+      <div>
+        {/* <Switch>
+          <Route path = "/githubapi" component = { Githubapi }></Route>
+        </Switch> */}
+        <Switch>
+          <Route path = "/search" component = { Search }></Route>
+        </Switch>
+        {/* <All></All> */}
+      
+      </div>
     );
   }
 }
