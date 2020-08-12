@@ -1,5 +1,4 @@
 import React from "react";
-import All from './Containers/All';
 import Search from './Components/Search'
 import { Switch, Route } from 'react-router'
 import Githubapi from "./Components/Githubapi";
@@ -9,14 +8,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        {/* <Switch>
-          <Route path = "/githubapi" component = { Githubapi }></Route>
-        </Switch> */}
         <Switch>
-          <Route path = "/search" component = { Search }></Route>
-        </Switch>
-        {/* <All></All> */}
-      
+          <Route exact path = "/" component = { Search }></Route>
+        </Switch>    
+        <Switch>
+          <Route exact path = "/api" component = { Githubapi }></Route>
+        </Switch>    
       </div>
     );
   }
