@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Githubapi from './Githubapi';
+import './style.css';
 class Search extends Component {
     state = { 
         username: "" ,
@@ -15,21 +16,22 @@ class Search extends Component {
         }))
         this.setState({error: false})
         this.setState({loading: false})
-        // this.setState({ username: e.target.userInput.value });
         console.log(this.state.username)
     }
-    renderResult = () => {this.loading ? <p>loading...</p> : <Githubapi userName={this.state.username}/>}
+    renderResult = () => this.state.loading ? <p>loading...</p> : <Githubapi userName={this.state.username} />
+
     render(){
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="userInput" id="userInput" onChange={this.handleChange} placeholder="Enter Github Username" ></input>
+                <form id="form" onSubmit={this.handleSubmit}>
+                    <input type="text" name="userInput" id="userInput" onChange= {this.handleChange} value={this.state.username} placeholder="Enter Github Username" ></input>
                     <input type="submit" name="submitUserInput" ></input>
                 </form> 
                 <br></br>
-                <div>
+                <div id="username">
                 Username: {this.state.username}
                 { this.state.error ? <p></p> : this.renderResult() }
+                {/* <Githubapi userName="bhuma08"/> */}
                 </div>
             </div>  
         )
