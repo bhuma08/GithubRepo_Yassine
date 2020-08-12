@@ -40,7 +40,10 @@ class Githubapi extends Component {
                 <div>
                     No of Repo: {this.state.practice.length}<br></br>
                     Name of Repo 1: {this.state.practice[0].name}<br></br>
-                    Name of Repo 2: {this.state.practice[0].id} 
+                    Name of Repo 2: {this.state.practice[1].name}<br></br>
+                    Name of Repo 3: {this.state.practice[2].name}<br></br>
+                    Name of Repo 4: {this.state.practice[3].name}<br></br>
+                    
                 </div>
                 )} 
             </div>
@@ -48,10 +51,6 @@ class Githubapi extends Component {
         )
     }
 }
-
-
-
-
 
 
 export default Githubapi;
