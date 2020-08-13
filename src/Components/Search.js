@@ -12,15 +12,16 @@ class Search extends Component {
     handleSubmit = e => {
         e.preventDefault();
         this.setState(prevState => ({
-            username: prevState.username
+            username: prevState.username,
         }))
         this.setState({error: false})
         this.setState({loading: false})
         console.log(this.state.username)
     }
     renderResult = () => this.state.loading ? <p>loading...</p> : <Githubapi userName={this.state.username} />
-
+   
     render(){
+        
         return(
             <div>
                 <form id="form" onSubmit={this.handleSubmit}>
@@ -31,9 +32,8 @@ class Search extends Component {
                 <div id="username">
                 Username: {this.state.username}
                 { this.state.error ? <p></p> : this.renderResult() }
-                {/* <Githubapi userName="bhuma08"/> */}
                 </div>
-            </div>  
+            </div>     
         )
     }
 }
