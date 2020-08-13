@@ -9,25 +9,12 @@ class Githubapi extends Component {
 
     async componentDidMount(){
         const url = `https://api.github.com/users/${this.props.userName}/repos`;
-        // const url = `https://api.github.com/users/bhuma08/repos`;
         const response = await fetch(url);
         const data = await response.json();
         this.setState({practice: data, load: false})
         this.setState({practice: data})
         console.log(data[1]);
-        // console.log(this.state.load)
     }
-
-    // api=()=> {
-    //     this.setState({load: true})
-    //     console.log("load is true")
-    // }
-
-    // componentDidUpdate(){
-    //     if(!this.state.load){
-    //         this.api()
-    //     }
-    // }
 
     render(){
         return(
@@ -47,16 +34,34 @@ class Githubapi extends Component {
             </div>
         )
     }
-
-    // componentDidUpdate(){
-    //     if(this.state.load){
-    //         console.log('true')
-    //     } if (!this.state.load) {
-    //             this.setState({
-    //                 load: true
-    //             })
-    //             console.log("false")
-    //         }
-    // }
 }
 export default Githubapi;
+
+// import React, {useState} from 'react';
+// import axios from 'axios'
+
+// function Githubapi (props){
+//     const [ info, setInfo ] = useState([])
+//     const {userName} = props
+
+//     axios.get(`https://api.github.com/users/${userName}/repos`)
+//             .then(function (response) {
+//             setInfo(response.data)
+//         })
+
+//     const listRepos = info.length !== 0 ? info.map((item) =>  
+//     <li key={item.id}>
+//          <p>{item.name}</p>
+//          <p> Fork Counts : {item.forks_count}</p>  
+//     </li>) :
+//     <h2></h2>
+
+//     return (
+//         <div>
+//             <ol>
+//                {listRepos} 
+//             </ol>
+//         </div>
+//     )
+// }
+//  export default Githubapi;
